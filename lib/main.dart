@@ -22,6 +22,8 @@ class TabController extends GetxController {
 class MyApp extends StatelessWidget {
   final TabController tabController = Get.put(TabController());
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,18 +34,18 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: CupertinoColors.systemGrey2,
             toolbarHeight: 0,
-           shadowColor: CupertinoColors.systemGrey5,
+            shadowColor: CupertinoColors.systemGrey5,
             elevation: 0,
             bottom: TabBar(
               indicatorColor: CupertinoColors.systemGrey5,
               labelColor: Colors.black,
-
-              tabs: [
+              tabs: const [
                 Tab(text: 'Home Loan'),
                 Tab(text: 'Personal Loan'),
               ],
-              indicator: BoxDecoration(
-                color: CupertinoColors.systemGrey5, // Change the color of the selected tab
+              indicator: const BoxDecoration(
+                color: CupertinoColors
+                    .systemGrey5, // Change the color of the selected tab
               ),
               onTap: (index) {
                 tabController.selectTab(index);
@@ -54,7 +56,7 @@ class MyApp extends StatelessWidget {
             builder: (controller) {
               return Container(
                 color: CupertinoColors.systemGrey5,
-                child: TabBarView(
+                child: const TabBarView(
                   children: [
                     HomeloanContent(),
                     Center(
